@@ -6,7 +6,7 @@
 }
 
 :root{
-    --lightblue: #77DBFF;
+    --lightblue: #b4ebff;
     --darkgreen: #009A8B;
     --lightgreen: #D3DCD9;
     --white: #f3f3f3;
@@ -107,14 +107,14 @@ img{
 .user_pic h4{
     margin-left: 10px;
     font-weight: 400;
+    font-size: 16px;
 }
 
 .user_img_wrapper{
     border-radius: 999px;
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     overflow: hidden;
-    border: 2px solid white;
     cursor: pointer;
 }
 
@@ -176,21 +176,78 @@ img{
     color: var(--lightblack);
     font-weight: 200;
 }
-
+/* SEARCH BAR */
 .search_bar{
     width: 100%;
     background-color: var(--white);
     padding: 5px;
+    position: relative;
 }
 
 .search_bar input{
     background-color: var(--grey);
-    line-height: 24px;
-    padding: 0px 15px;
+    line-height: 28px;
+    padding: 0px 35px;
     width: 100%;
     border: none;
     border-radius: 8px;
+    color: var(--lightblack);
 }
+
+.search_bar i{
+    color: var(--lightblack);
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%,-50%);
+}
+
+/* CONTATTI */
+.contacts{
+    overflow-y: auto;
+}
+.contacts_item{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.contacts_profile_wrapper{
+    border-radius: 999px;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contacts_profile_wrapper img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.user_data{
+    padding-left: 10px;
+}
+
+.user_details{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.user_message{
+    color: var(--lightblack);
+    font-size: 14px;
+}
+
+.time{
+    margin-left: auto;
+    color: var(--lightblack);
+    font-size: 14px;
+}
+
 
 
 

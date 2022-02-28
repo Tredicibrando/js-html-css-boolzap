@@ -12,10 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body id="app">
+<body >
 
 
-    <main class="container">
+    <main id="app" class="container">
         <section class="page_wrap">
             <div class="contact">
                 <!-- TOOLBAR PERSONALE UTENTE -->
@@ -46,24 +46,25 @@
                     </div> 
                     
                     <div class="search_bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
 
                 <div class="contacts">
                     <ul class="contacts_list">
-                        <li class="contacts_item">
+                        <li class="contacts_item" v-for="(user,i) in contacts">
                             <div class="contacts_profile_wrapper">
                                 <img src="img/immagine_profilo.jpg" alt="">
                                 
                             </div>
                             <div class="user_data">
-                                <p class="user_details">Nome utente</p>
-                                <p class="user_message">ultimo messaggio</p>
+                                <p class="user_details">{{contacts[i].name}}</p>
+                                <p class="user_message" v-for="(message,i) in contacts[i].messages">{{message.text}}</p>
                             </div>
 
-                            <div class="time">
-                                data e ora
+                            <div class="time" v-for="(message,i) in contacts[i].messages">{{message.date[text]}}>
+                                
                             </div>
                         </li>
                     </ul>
