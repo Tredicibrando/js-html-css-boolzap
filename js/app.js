@@ -6,13 +6,14 @@ const app = new Vue({
         contacts : [
             {
             name: 'Michele',
-            avatar: '_1',
+            avatar: 'img/_1.png',
             visible: true,
-            messages: [{
+            messages: [
+                {
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
             status: 'sent'
-            },
+                },
             {
             date: '10/01/2020 15:50:00',
             text: 'Ricordati di dargli da mangiare',
@@ -28,7 +29,7 @@ const app = new Vue({
             },
             {
             name: 'Fabio',
-            avatar: '_2',
+            avatar: 'img/_2.png',
             visible: true,
             messages: [
             {
@@ -51,7 +52,7 @@ const app = new Vue({
             },
             {
             name: 'Samuele',
-            avatar: '_3',
+            avatar: 'img/_3.png',
             visible: true,
             messages: [
             {
@@ -73,7 +74,7 @@ const app = new Vue({
             },
             {
             name: 'Luisa',
-            avatar: '_4',
+            avatar: 'img/_4.png',
             visible: true,
             messages: [
             {
@@ -92,6 +93,6 @@ const app = new Vue({
         
     },
     methods:{
-
+        
     },
 });

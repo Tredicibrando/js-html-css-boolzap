@@ -55,16 +55,19 @@
                     <ul class="contacts_list">
                         <li class="contacts_item" v-for="(user,i) in contacts">
                             <div class="contacts_profile_wrapper">
-                                <img src="img/immagine_profilo.jpg" alt="">
+                                <img :src="user.avatar" alt="">
                                 
                             </div>
                             <div class="user_data">
-                                <p class="user_details">{{contacts[i].name}}</p>
-                                <p class="user_message" v-for="(message,i) in contacts[i].messages">{{message.text}}</p>
+                                <p class="user_details">{{user.name}}</p>
+                                <p class="user_message">{{ user.messages[user.messages.length - 1].text}}</p>
+                
+
+
                             </div>
 
-                            <div class="time" v-for="(message,i) in contacts[i].messages">{{message.date[text]}}>
-                                
+                            <div class="time">
+                                {{ user.messages[user.messages.length - 1].date}}
                             </div>
                         </li>
                     </ul>
@@ -73,7 +76,64 @@
                 
             </div>
             <div class="chat">
+                <div class="chat_user_toolbar">
+                    
+                        <div class="contacts_profile_wrapper">
+                            <img src="img/immagine_profilo.jpg" alt="">
+                        </div>
 
+                        <div class="user_data">
+                            <p class="user_details">Username</p>
+                            <p class="user_message">testo</p>
+                        </div>
+
+                        <div class="chat_icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                </div>
+
+                <ul class="chat_messages">
+
+                    <li class="message sent">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                        <div class="message_time">00:42</div>
+                    </li>
+
+                    <li class="message sent">
+                        Lorem ipsum dolor sit .
+                    </li>
+
+                    <li class="message received">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                    </li>
+
+                    <li class="message received">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                    </li>
+
+                    <li class="message sent">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                    </li>
+
+                    <li class="message sent">
+                        Lorem ipsum dolor sit .
+                    </li>
+
+                    <li class="message received">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                    </li>
+
+
+                </ul>
+
+                <div class="chat_input_toolbar">
+                    <i class="fa-solid fa-face-smile chat_icon"></i>
+                    <i class="fa-solid fa-paperclip chat_icon"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone chat_icon"></i>
+                </div>
             </div>
         </section>
     </main>
