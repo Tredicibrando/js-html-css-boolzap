@@ -53,21 +53,17 @@
 
                 <div class="contacts">
                     <ul class="contacts_list">
-                        <li class="contacts_item" v-for="(user,i) in contacts">
+                        <li class="contacts_item" v-for="(user,i) in contacts" @click="selectContact(user)" :class="activeContact === user ? 'active' : ''">
                             <div class="contacts_profile_wrapper">
                                 <img :src="user.avatar" alt="">
-                                
                             </div>
                             <div class="user_data">
                                 <p class="user_details">{{user.name}}</p>
                                 <p class="user_message">{{ user.messages[user.messages.length - 1].text}}</p>
-                
-
-
                             </div>
 
                             <div class="time">
-                                {{ user.messages[user.messages.length - 1].date}}
+                                {{ user.messages[user.messages.length - 1].date.slice(10)}}
                             </div>
                         </li>
                     </ul>
@@ -79,12 +75,12 @@
                 <div class="chat_user_toolbar">
                     
                         <div class="contacts_profile_wrapper">
-                            <img src="img/immagine_profilo.jpg" alt="">
+                            <img src="img/_1.png" alt="">
                         </div>
 
                         <div class="user_data">
-                            <p class="user_details">Username</p>
-                            <p class="user_message">testo</p>
+                            <p class="user_details">Marco</p>
+                            <p class="user_message">ultimo accesso 08:45</p>
                         </div>
 
                         <div class="chat_icon">
@@ -96,34 +92,12 @@
 
                 <ul class="chat_messages">
 
-                    <li class="message sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
+                    <li class="message" v-for="(element,i) in activeContact.messages" :class="element.status">
+                        {{ element.text }}
                         <div class="message_time">00:42</div>
                     </li>
 
-                    <li class="message sent">
-                        Lorem ipsum dolor sit .
-                    </li>
-
-                    <li class="message received">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
-                    </li>
-
-                    <li class="message received">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
-                    </li>
-
-                    <li class="message sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
-                    </li>
-
-                    <li class="message sent">
-                        Lorem ipsum dolor sit .
-                    </li>
-
-                    <li class="message received">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, error.
-                    </li>
+                
 
 
                 </ul>

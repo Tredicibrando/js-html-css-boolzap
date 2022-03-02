@@ -72,6 +72,7 @@ ul,ol{
     background-color: #f3f3f3;
     height: 100%;
     min-width: 250px;
+    flex-shrink: 0;
 }
 
 .chat{
@@ -334,7 +335,6 @@ ul,ol{
 .message.received{
     align-self: flex-start;
     background-color: var(--white);
-    min-width: 250px;
 }
 
 
@@ -386,6 +386,10 @@ ul,ol{
     color: var(--lightblack);
     font-size: 10px;
     padding-left: 10px;
+}
+
+.active{
+    background-color: var(--grey);
 }
 
 

@@ -3,6 +3,7 @@ console.log('ciao')
 const app = new Vue({
     el:'#app',
     data: {
+        activeContact: null,
         contacts : [
             {
             name: 'Michele',
@@ -93,6 +94,11 @@ const app = new Vue({
         
     },
     methods:{
-        
+        selectContact: function(contact){
+            this.activeContact = contact;
+        },
     },
+    created(){
+        this.selectContact(this.contacts[0]);
+    }
 });
