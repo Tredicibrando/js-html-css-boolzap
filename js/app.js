@@ -4,6 +4,7 @@ const app = new Vue({
     el:'#app',
     data: {
         activeContact: null,
+        newMessage:'',
         contacts : [
             {
             name: 'Michele',
@@ -93,12 +94,42 @@ const app = new Vue({
             ]
         
     },
-    methods:{
-        selectContact: function(contact){
+    methods: {
+        selectContact: function(contact) {
             this.activeContact = contact;
         },
+        getTime: function(date){
+            const time = date.split(' ')[1];
+            return time.substring(0,5);
+        },
+        sendNewMessage: function(status,text) {
+            const d = new Date();
+            //creare oggetto
+            const message = {
+                status: 'sent',
+                text: this.newMessage,
+                date: `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} ${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`,
+            };
+            this.activeContact.messages.push(message)
+            this.newMessage = '';
+            //pusho oggetto in array
+            
+
+            setTimeout(this.receiveNewMessage, 1000)
+        },
+        receiveNewMessage: function(){
+            const d = new Date();
+            //creare oggetto
+            const message = {
+                status: 'received',
+                text: 'okay',
+                date: `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} ${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`,
+            };
+            this.activeContact.messages.push(message)
+        },
+        
     },
     created(){
-        this.selectContact(this.contacts[0]);
-    }
+    this.selectContact(this.contacts[0]);
+    },
 });

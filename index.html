@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="time">
-                                {{ user.messages[user.messages.length - 1].date.slice(10)}}
+                                {{ getTime(user.messages[user.messages.length - 1].date) }}
                             </div>
                         </li>
                     </ul>
@@ -72,15 +72,15 @@
                 
             </div>
             <div class="chat">
-                <div class="chat_user_toolbar">
+                <div class="chat_user_toolbar"  @click="selectContact()">
                     
                         <div class="contacts_profile_wrapper">
-                            <img src="img/_1.png" alt="">
+                            <img :src="activeContact.avatar" alt="">
                         </div>
 
                         <div class="user_data">
-                            <p class="user_details">Marco</p>
-                            <p class="user_message">ultimo accesso 08:45</p>
+                            <p class="user_details">{{activeContact.name}}</p>
+                            <p class="user_message">Ultimo accesso oggi alle 09:45</p>
                         </div>
 
                         <div class="chat_icon">
@@ -94,18 +94,15 @@
 
                     <li class="message" v-for="(element,i) in activeContact.messages" :class="element.status">
                         {{ element.text }}
-                        <div class="message_time">00:42</div>
+                        <div class="message_time">{{getTime(element.date)}}</div>
                     </li>
-
-                
-
 
                 </ul>
 
                 <div class="chat_input_toolbar">
                     <i class="fa-solid fa-face-smile chat_icon"></i>
                     <i class="fa-solid fa-paperclip chat_icon"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendNewMessage">
                     <i class="fa-solid fa-microphone chat_icon"></i>
                 </div>
             </div>
